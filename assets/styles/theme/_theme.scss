@@ -1,0 +1,224 @@
+//Global
+html {
+  font-size: 100%;
+} /* 1rem = 16px */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
+    sans-serif;
+  font-size: $default-font-size;
+  line-height: $default-line-height;
+  @include mq($from: tablet) {
+    @include rhythm(19, 25);
+  }
+  font-weight: normal;
+  background-color: var(--background);
+  color: var(--text);
+  text-align: left;
+  letter-spacing: 1rem * 0.02;
+  word-spacing: 1rem * 0.04;
+}
+
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: "Inter var", -apple-system, BlinkMacSystemFont,
+      "Helvetica Neue", Helvetica, sans-serif;
+  }
+}
+
+//Links
+a,
+a:link {
+  -webkit-transition: all 150ms ease;
+  transition: all 150ms ease;
+  color: var(--highlight-dark);
+  text-decoration: underline;
+  &:active {
+  }
+  &:hover,
+  &:focus {
+    color: var(--hover);
+    text-decoration: none;
+  }
+}
+
+.jw-content {
+  p {
+    margin: 0 0 var(--gap-20);
+  }
+  em {
+    font-style: italic;
+  }
+  hr {
+    margin: var(--gap-40) 0;
+  }
+  strong {
+    font-weight: 700;
+  }
+  ul {
+    margin: 0 0 calc(var(--gap-20) * 2) var(--gap-20);
+    padding: 0;
+    list-style-type: disc;
+  }
+  ol {
+    list-style-type: lower-alpha;
+    margin: 0 0 calc(var(--gap-20) * 2) var(--gap-20);
+    ol {
+      margin-top: var(--gap-20);
+      list-style-type: lower-roman;
+    }
+  }
+  img {
+    margin-top: 2rem;
+  }
+  table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    tr:nth-child(2n) {
+      background-color: var(--shade);
+    }
+    th,
+    td {
+      border: 1px solid var(--border);
+      padding: var(--gap-5) var(--gap-10);
+    }
+  }
+  pre,
+  code {
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    padding: var(--gap-5) var(--gap-10);
+    overflow: auto;
+    font-size: 80%;
+    line-height: 1.45;
+    background-color: var(--border);
+    border-radius: 3px;
+  }
+}
+
+/*Layout*/
+@media only screen and (min-width: 64rem) {
+  .jw-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+}
+
+.jw-masthead {
+  padding: 0;
+  background-color: var(--border);
+  line-height: 1;
+  .jw-masthead__container {
+    padding: var(--gap-20);
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+}
+
+//Sticky footer
+.jw-container {
+  //We need this for IE11 to respect, flex:1 won't work on it's own
+  flex: 1 0 auto;
+}
+
+.jw-footer {
+  background-color: var(--masthead);
+  color: white;
+}
+
+//Logo
+.jw-masthead__logo {
+  svg {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.jw-content {
+  padding: 0;
+  margin: 0;
+}
+
+.jw-content__inner {
+  max-width: 70ch;
+  margin: 0 auto 4rem;
+  padding: var(--gap-20);
+  @include mq($from: desktop) {
+    padding: var(--gap-40) 0;
+  }
+}
+
+//Links
+.jw-content__links {
+  p {
+    margin: 0 0 5px;
+  }
+  [class^="fa"] {
+    margin-right: var(--gap-10);
+  }
+}
+
+//Footer
+.jw-footer {
+  padding: 4rem 0;
+  color: var(--border);
+  .nav-social {
+    margin: var(--gap-20) auto;
+    padding: 0;
+    max-width: 200px;
+    @include mq($from: desktop) {
+      max-width: 400px;
+    }
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    li {
+      display: block;
+      flex: 0 1 auto;
+    }
+  }
+  .icon-social {
+    width: 30px;
+    height: 30px;
+    transition: all 0.3s ease;
+    fill: var(--border);
+    -webkit-transition: all 150ms ease;
+    transition: all 150ms ease;
+    &:hover {
+      opacity: 1;
+      fill: var(--highlight-light);
+    }
+  }
+  .icon-social-instagram {
+    fill: url(#rg);
+  }
+  p {
+    font-weight: normal;
+    color: inherit;
+    @extend %jw-heading-xs;
+    text-align: center;
+    margin: var(--gap-20) 0;
+    > a {
+      color: inherit;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        color: var(--highlight-light);
+      }
+    }
+  }
+}
+
+//Themes
+$themes: (
+  "light-grey": $jw-light-grey,
+  "dark-grey": $jw-dark-grey,
+  "coal": $jw-coal,
+);
+@each $theme, $color in $themes {
+  .theme--#{$theme} {
+    background-color: $color;
+  }
+}

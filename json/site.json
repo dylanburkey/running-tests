@@ -1,0 +1,17 @@
+[
+  {
+    "name": "🧱 juckWonder 🧱",
+    "shortDesc": "Nunjucks starter kit (static site generator)",
+    "siteUrl": "https://juckwonder.com",
+    "socialImage": "https://juckwonder.com/images/og/og-image.png",
+    "companyName": "Dogwonder Ltd",
+    "companyPhone": "07967835097",
+    "companyEmail": "dogwonder@gmail.com",
+    "privacyUrl": "./privacy.html",
+    "cookieUrl": "./cookies.html",
+    "ownerName": "Rich Holman",
+    "ownerEmail": "dogwonder@gmail.com",
+    "authorHandle": "@dogwonder",
+    "authorName": "Rich Holman"
+  }
+]

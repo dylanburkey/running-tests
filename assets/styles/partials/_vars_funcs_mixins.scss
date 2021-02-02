@@ -1,0 +1,109 @@
+// Fonts
+$default-font-size: 1rem;
+$default-line-height: 1.25;
+
+//Variables
+$typeface: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+  Helvetica, sans-serif;
+
+//Themes
+$jw-light-grey: #f0f4f8;
+$jw-coal: #111;
+$jw-dark-grey: #323232;
+$jw-yellow: #feca30;
+
+//Weights
+$light: 300;
+$regular: 400;
+$bold: 900;
+
+// Colors
+$text-color: hsl(257, 2%, 0%);
+
+//Social colors
+$facebook: #3b5998;
+$twitter: #00aced;
+$whatsapp: #25d366;
+$pinterest: #cb2027;
+$instagram: #376489;
+$linkedin: #007bb6;
+$youtube: #bb0000;
+$email: #333333;
+
+//Measures - for margin / padding
+$gaps: (
+  50: 50px,
+  40: 40px,
+  30: 30px,
+  20: 20px,
+  15: 15px,
+  10: 10px,
+  5: 5px,
+);
+
+//Redeclare from vendor/_mq.scss -- https://github.com/sass-mq/sass-mq
+$mq-breakpoints: (
+  mobile: 320px,
+  tablet: 641px,
+  desktop: 769px,
+) !default;
+
+//CSS Vars - usage var(--background)
+:root {
+  --hue: 209;
+
+  --background: white;
+  --shade: #f6f8fa;
+  --masthead: #1e1e1e;
+
+  --border: #e5e7e9;
+
+  --text: hsl(209, 2%, 0%);
+  --heading: hsl(209, 20%, 0%);
+  --meta: hsl(209, 10%, 53%);
+
+  --highlight: hsl(209, 92%, 43%);
+  --highlight-dark: hsl(209, 61%, 14%);
+  --highlight-light: hsl(209, 31%, 80%);
+  --hover: hsl(209, 34%, 30%);
+
+  --button-background: hsl(209, 39%, 23%);
+  --button-background-hover: hsl(209, 61%, 16%);
+  --button-text-color: white;
+
+  --container: 70ch;
+
+  @each $key, $value in $gaps {
+    --gap-#{$key}: #{$value};
+  }
+}
+
+//Font and line height calulation, with unitless line-height
+// Base font size of 16px and line-height of 1.25
+// Usage
+// @include rhythm(48, 50);
+@mixin rhythm($sizeValue: 16, $heightValue: 20) {
+  //Font sizes px + rem
+  font-size: $sizeValue + px; //fallback for old browsers
+  font-size: (0.0625 * $sizeValue) + rem;
+  //Line height - unitless
+  line-height: $heightValue / $sizeValue;
+}
+
+//Aspect ratio
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

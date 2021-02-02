@@ -1,0 +1,156 @@
+//Accessibility
+/* Text meant only for screen readers */
+.hidden-all {
+  display: none;
+}
+
+.hidden-visually,
+.sr-only {
+  height: 1px;
+  width: 1px;
+  position: absolute !important;
+  overflow: hidden;
+  padding: 0;
+  /* many screen reader and browser combinations announce broken words as they would appear visually */
+  word-wrap: normal !important;
+  white-space: nowrap;
+  clip: rect(0, 0, 0, 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  border: 0;
+}
+
+.hidden-visually:focus,
+.sr-only:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  -webkit-clip-path: none;
+  clip-path: none;
+  color: #21759b;
+  display: block;
+  font-weight: 700;
+  height: auto;
+  right: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}
+
+.skip-link {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  @include rhythm(14, 20);
+  display: block;
+  padding: 10px 15px;
+}
+
+.skip-link:active,
+.skip-link:focus {
+  text-decoration: underline;
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  margin: inherit !important;
+  overflow: visible !important;
+  clip: auto !important;
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
+  white-space: inherit !important;
+}
+
+.skip-link:active,
+.skip-link:focus,
+.skip-link:hover,
+.skip-link:link,
+.skip-link:visited {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.skip-link:focus {
+  outline: 3px solid #fd0;
+  background-color: #fd0;
+}
+
+//Utilities
+.flow > * + * {
+  margin-top: var(--gap-20, 2em);
+}
+
+//Alerts
+.alert {
+  padding: var(--gap-10);
+  color: #c53030;
+  border: 1px solid #fc8181;
+  border-radius: 2px;
+  background-color: #fff5f5;
+  @extend %jw-heading-xs;
+  font-weight: bold;
+}
+.alert .a {
+  color: #fff5f5;
+  text-decoration: underline;
+}
+
+//Padding
+.inner {
+  padding: var(--gap-20);
+  @include mq($from: desktop) {
+    padding: var(--gap-40);
+  }
+}
+
+//Aspect ratio
+.frame {
+  --n: 6;
+  --d: 9;
+  padding-bottom: calc(var(--n) / var(--d) * 100%);
+  position: relative;
+}
+
+.frame > * {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.frame picture {
+  width: 100%;
+}
+
+.frame img,
+.frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  margin: 0;
+}
+
+
+//Exceptions
+
+// Usage <article class="card" data-state="reversed"></article> -- https://piccalil.li/blog/cube-css/
+.card[data-state='reversed'] {
+  display: flex;
+  flex-direction: column-reverse;
+}

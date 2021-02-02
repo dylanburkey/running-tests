@@ -1,0 +1,18 @@
+{% set bodyClass = "jw-about" %}
+{% set pageTitle = "About" %}
+{% set pageName = "about.html" %}
+
+{# {{ shortDesc }}
+{% set shortDesc = "Blah blah blah" %}
+{{ shortDesc }} #}
+
+{% extends "layout/_layout.njk" %}
+
+{% block content %}
+<div class="jw-content__inner">
+    <h1>About</h1>
+    {% markdown %}
+    {% include "markdown/README.md" %}
+    {% endmarkdown %}
+</div>
+{% endblock %} 

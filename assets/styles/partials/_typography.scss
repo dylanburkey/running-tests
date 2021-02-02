@@ -1,0 +1,94 @@
+//Typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $bold;
+  color: var(--heading);
+  line-height: 1;
+  margin: 0 0 var(--gap-20);
+}
+
+//Usage @extend %jw-heading-m;
+%jw-heading-xl,
+.jw-heading-xl,
+h1 {
+  font-weight: $bold;
+  @include rhythm(32, 35);
+  @include mq($from: tablet) {
+    @include rhythm(48, 50);
+  }
+  margin-bottom: var(--gap-50);
+}
+
+%jw-heading-l,
+.jw-heading-l,
+h2 {
+  font-weight: $bold;
+  @include rhythm(24, 25);
+  @include mq($from: tablet) {
+    @include rhythm(36, 40);
+  }
+  margin-bottom: var(--gap-30);
+}
+
+%jw-heading-m,
+.jw-heading-m,
+h3 {
+  font-weight: $bold;
+  @include rhythm(18, 20);
+  @include mq($from: tablet) {
+    @include rhythm(24, 30);
+  }
+  margin-bottom: var(--gap-20);
+}
+
+%jw-heading-s,
+.jw-heading-s,
+h4 {
+  font-weight: $bold;
+  @include rhythm(16, 20);
+  @include mq($from: tablet) {
+    @include rhythm(19, 25);
+  }
+  margin-bottom: var(--gap-20);
+}
+
+%jw-heading-xs,
+.jw-heading-xs,
+h5,
+h6 {
+  font-weight: $bold;
+  @include rhythm(14, 16);
+  @include mq($from: tablet) {
+    @include rhythm(16, 20);
+  }
+}
+
+%jw-body,
+.jw-body {
+  font-weight: normal;
+  @include rhythm(16, 20);
+  @include mq($from: tablet) {
+    @include rhythm(19, 25);
+  }
+}
+
+%jw-body-l,
+.jw-body-l {
+  @include rhythm(18, 20);
+  @include mq($from: tablet) {
+    @include rhythm(24, 30);
+  }
+  margin-bottom: var(--gap-30);
+}
+
+%jw-body-s,
+.jw-body-s {
+  @include rhythm(14, 16);
+  @include mq($from: tablet) {
+    @include rhythm(16, 20);
+  }
+}

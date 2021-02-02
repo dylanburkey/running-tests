@@ -1,0 +1,70 @@
+.cookie-notice {
+  display: none;
+  color: var(--highlight-dark);
+  background-color: #ecf3f7;
+  border: 0;
+  border-bottom: 2px solid #bcdff1;
+  @include mq($from: desktop) {
+    padding: 6px;
+  }
+  display: none;
+  text-align: center;
+  p {
+    margin: 0;
+    @include rhythm(14, 20);
+  }
+  a {
+    color: var(--highlight-dark);
+  }
+  .cookieButton {
+    font-size: 12px;
+    line-height: 1;
+    font-weight: bold;
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid var(--highlight-dark);
+    -webkit-appearance: none;
+    padding: 1px 8px;
+    margin: 5px 0 0 5px;
+    @include mq($from: desktop) {
+      margin: 0 0 0 5px;
+    }
+    color: inherit;
+    text-decoration: none;
+    box-shadow: none;
+    &:focus,
+    &:hover {
+      background-color: var(--highlight-dark);
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
+
+.cookie-notice.open {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  @include mq($until: tablet) {
+    flex-direction: column;
+    .cookieButton {
+      border: 0;
+      margin: 0;
+      display: block;
+      padding: var(--gap-10);
+      width: 100%;
+      background-color: var(--highlight);
+      color: white;
+    }
+    .cookie-notice__text {
+      padding: var(--gap-10);
+    }
+    .cookie-notice__accept {
+    }
+    .cookie-notice__change {
+      > a {
+        background-color: var(--highlight-dark);
+      }
+    }
+  }
+}

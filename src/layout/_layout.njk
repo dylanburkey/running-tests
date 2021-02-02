@@ -1,0 +1,50 @@
+{% set global = data.site[0] %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% include "../partials/_meta.njk" %}
+    <script src="./scripts/js.cookie.js"></script>
+    <link rel="stylesheet" href="./css/main.css?cache_bust={{ pkgVersion() }}">
+    {% include "../partials/_structured-data.njk" %}
+    {% include "../partials/_analytics.njk" %}
+</head>
+<body class="has-cookie jw{% if bodyClass %} {{ bodyClass }}{% endif %}" data-theme="default">
+    {% include "../partials/_cookie.njk" %}
+    <a class="skip-link" href="#content">Skip to content</a>
+    <div class="jw-wrapper">
+    {% include "../partials/_header.njk" %}
+    <main id="content" class="jw-container">
+      <div class="jw-content">
+        {% block content %}
+            {# Main content goes here. #}
+         {% endblock %}
+      </div>
+    </main><!--/.container-->
+    {% include "../partials/_footer.njk" %}
+    </div><!--/.wrapper-->
+    <script src="./scripts/app.js"></script>
+    <script>
+    // This is the service worker with the combined offline experience (Cache-first network) - https://preview.pwabuilder.com/serviceworker
+    if ("serviceWorker" in navigator) {
+        if (navigator.serviceWorker.controller) {
+            //console.log("active service worker found, no need to register");
+        } else {
+            // Register the service worker
+            navigator.serviceWorker
+            .register("sw.js", {
+                scope: "./"
+            })
+            .then(function (reg) {
+                //console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+        }
+    }
+    </script>
+    {% block scripts %}
+        {#extra scripts. #}
+    {% endblock %}
+</body>
+</html>

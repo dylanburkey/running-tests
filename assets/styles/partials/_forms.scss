@@ -1,0 +1,100 @@
+[type="text"],
+[type="email"],
+textarea,
+select {
+  border: 2px solid #000;
+  font-size: 1rem;
+  width: 100%;
+  padding: var(--gap-10);
+}
+
+.button,
+[type="submit"] {
+  display: inline-block;
+  @include rhythm(16, 20);
+  font-weight: bold;
+  cursor: pointer;
+  padding: var(--gap-10) var(--gap-20);
+  background-color: var(--button-background);
+  border: 2px solid var(--button-background);
+  color: white;
+  &:hover {
+    /* Change background/text color */
+    background-color: var(--button-background-hover);
+    border-color: var(--button-background-hover);
+    color: white;
+  }
+  &:active {
+    /* Change background/text color a bit more for active states*/
+    background-color: var(--highlight-dark);
+    border-color: var(--highlight-dark);
+    color: white;
+  }
+  &:focus {
+    /* Adds a white border around the button, along with a blue glow. The white and blue have a color contrast ratio of at least 3:1, which means this will work against any background color. */
+    box-shadow: 0 0 0 2px #ffffff, 0 0 3px 5px var(--highlight);
+
+    /* NOTE: box-shadow is invisible in Windows high-contrast mode, so we need to add a transparent outline, which actually does show up in high-contrast mode. */
+    outline: 2px dotted transparent;
+    outline-offset: 2px;
+  }
+}
+
+a.button,
+a.button:link {
+  text-decoration: none;
+  color: white;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+::placeholder {
+  /* Firefox 19+ */
+  color: black;
+}
+
+.error {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-style: italic;
+  @extend %jw-heading-xs;
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-10);
+
+  .form-control {
+    flex: 1;
+  }
+
+  &.contact-form {
+    flex-direction: column;
+    [type="text"],
+    [type="email"],
+    textarea,
+    select {
+      border-color: black;
+      margin-top: 4px;
+    }
+    [type="submit"] {
+      margin: 0;
+      background-color: black;
+      color: white;
+      padding-left: var(--gap-20);
+      padding-right: var(--gap-20);
+      &:hover,
+      &:focus {
+        background-color: #333;
+        color: white;
+      }
+    }
+  }
+}

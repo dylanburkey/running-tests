@@ -1,0 +1,87 @@
+{
+  "name": "🌵 juckWonder 🌵",
+  "shortDesc": "Nunjucks starter kit (static site generator)",
+  "siteUrl": "https://juckwonder.com",
+  "socialImage": "https://juckwonder.com/images/og/og-image.png",
+  "authorHandle": "@dogwonder",
+  "authorName": "Rich Holman",
+  "companyName": "Dogwonder Ltd",
+  "privacyUrl": "./privacy.html",
+  "cookieUrl": "./cookies.html",
+  "ownerName": "Rich Holman",
+  "ownerEmail": "dogwonder@gmail.com",
+  "images": [
+    {
+      "id": "1",
+      "image": "images/blocks/block-1-640w.jpg",
+      "image_large": "images/blocks/block-1-1920w.jpg",
+      "title": "Lego people",
+      "width": "1920",
+      "height": "1280"
+    },
+    {
+      "id": "2",
+      "image": "images/blocks/block-2-640w.jpg",
+      "image_large": "images/blocks/block-2-1920w.jpg",
+      "title": "Lego people",
+      "width": "1920",
+      "height": "1280"
+    },
+    {
+      "id": "3",
+      "image": "images/blocks/block-3-640w.jpg",
+      "image_large": "images/blocks/block-3-1920w.jpg",
+      "title": "Lego people",
+      "width": "1920",
+      "height": "1280"
+    },
+    {
+      "id": "4",
+      "image": "images/blocks/block-4-640w.jpg",
+      "image_large": "images/blocks/block-4-1920w.jpg",
+      "title": "Lego people",
+      "width": "1920",
+      "height": "1280"
+    },
+    {
+      "id": "5",
+      "image": "images/blocks/block-5-640w.jpg",
+      "image_large": "images/blocks/block-5-1920w.jpg",
+      "title": "Lego people",
+      "width": "1920",
+      "height": "1280"
+    },
+    {
+      "id": "6",
+      "image": "images/blocks/block-6-640w.jpg",
+      "image_large": "images/blocks/block-6-1920w.jpg",
+      "title": "Lego people",
+      "width": "1920",
+      "height": "1280"
+    },
+    {
+      "id": "7",
+      "image": "images/blocks/block-7-640w.jpg",
+      "image_large": "images/blocks/block-7-1920w.jpg",
+      "title": "Lego people",
+      "width": "1920",
+      "height": "1280"
+    },
+    {
+      "id": "8",
+      "image": "images/blocks/block-8-640w.jpg",
+      "image_large": "images/blocks/block-8-1920w.jpg",
+      "title": "Lego people",
+      "width": "1920",
+      "height": "1280"
+    },
+    {
+      "id": "10",
+      "image": "images/blocks/block-10-640w.jpg",
+      "image_large": "images/blocks/block-10-1920w.jpg",
+      "title": "Lego people",
+      "width": "1920",
+      "height": "1280"
+    }
+  ]
+}

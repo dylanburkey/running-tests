@@ -1,0 +1,27 @@
+{% set bodyClass = "jw-gallery" %}
+{% set pageTitle = "Gallery" %}
+{% set pageName = "gallery.html" %}
+{% set images = data.images %}
+
+{% extends "layout/_layout.njk" %}
+{% from "macros/gallery.njk" import gallery %}
+
+{% block content %}
+<div class="jw-content__inner">
+ 
+<h1>Gallery</h1>
+<div class="jw-gallery">
+    <div class="jw-gallery__grid gallerySwipe">
+        {% for image in images %}
+            {% set galleryImage = './images/blocks/' + image.image %}
+            {% set galleryImageLarge = './images/blocks/' + image.image_large %}
+            {{ gallery(image.index, image.title, image.caption, galleryImage, galleryImageLarge, image.width, image.height) }}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% include "partials/_gallery-dom.njk" %}
+<script src="./scripts/gallery.js"></script>
+{% endblock %}
